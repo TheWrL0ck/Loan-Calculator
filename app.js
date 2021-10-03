@@ -18,8 +18,9 @@ function calculateResults(){
     const totalPayment=document.getElementById('total-payment');
     const totalInterest=document.getElementById('total-interest');
     const principal=parseFloat(amount.value);
-    const calculatedInterest=parseFloat(interest.value)/100/12;
+    const calculatedInterest=parseFloat(interest.value)/(100/12);
     const calculatedPayments=parseFloat(years.value)*12;
+    const calculatedTotalPayment=calculatedPayments*5;
 
     //compute monthly payment
     const x=Math.pow(1+calculatedInterest,calculatedPayments);
@@ -53,7 +54,7 @@ function showError(error){
     errorDiv.className='alert alert-danger';
     errorDiv.appendChild(document.createTextNode(error));
     card.insertBefore(errorDiv,heading);
-    setTimeout(clearError,3000);
+    setTimeout(clearError,2000);
 }
 
 //clear error
